@@ -16,4 +16,10 @@ describe('Thermostat', function() {
       thermostat.down(10)
       expect(thermostat.temperature).toEqual(10);
   })
+
+  it('cannot have a temperature lower than 10', function () {
+    let thermostat = new Thermostat();
+    thermostat.down(20)
+    expect(thermostat.temperature).toEqual(10);
+  })
 })
