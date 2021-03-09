@@ -49,8 +49,17 @@ describe('Thermostat', function() {
   it('can reset the temperature to 20 with a reset function', function() {
     let thermostat = new Thermostat();
     thermostat.up(5);
-    thermostat.reset;
+    thermostat.reset();
     expect(thermostat.temperature).toEqual(20);
   })
 
+  it('displays correct energy usage', function() {
+    let thermostat = new Thermostat();
+    thermostat.down(5);
+    expect(thermostat.energyUsage).toEqual("low-usage");
+    thermostat.up(10);
+    expect(thermostat.energyUsage).toEqual("medium-usage");
+    thermostat.up(1);
+    expect(thermostat.energyUsage).toEqual("high-usage");
+  })
 })
