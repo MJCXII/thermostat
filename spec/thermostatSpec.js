@@ -7,8 +7,8 @@ describe('Thermostat', function() {
 
   it('can increase the temperature with an up function', function() {
       let thermostat = new Thermostat();
-      thermostat.up(10)
-      expect(thermostat.temperature).toEqual(30);
+      thermostat.up(5)
+      expect(thermostat.temperature).toEqual(25);
   })
 
   it('can decrease the temperature with a down function', function() {
@@ -44,4 +44,13 @@ describe('Thermostat', function() {
     thermostat.powerSavingMode(false);
     expect(thermostat.powersaver).toEqual(false);
   })
+
+//You can reset the temperature to 20 with a reset function
+  it('can reset the temperature to 20 with a reset function', function() {
+    let thermostat = new Thermostat();
+    thermostat.up(5);
+    thermostat.reset;
+    expect(thermostat.temperature).toEqual(20);
+  })
+
 })
