@@ -8,6 +8,8 @@ class Thermostat {
   up(temp) {
     if (this.powersaver === true && (temp + this.temperature) > 25) {
       this.temperature = 25
+    } else if(temp + this.temperature > 32) {
+      this.temperature = 32
     } else {
     this.temperature += temp;
     }

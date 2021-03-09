@@ -38,4 +38,10 @@ describe('Thermostat', function() {
     expect(thermostat.temperature).toEqual(32);
   })
 
+  it('powersavingmode is on by default and can be toggled', function() {
+    let thermostat = new Thermostat();
+    expect(thermostat.powersaver).toEqual(true);
+    thermostat.powerSavingMode(false);
+    expect(thermostat.powersaver).toEqual(false);
+  })
 })
