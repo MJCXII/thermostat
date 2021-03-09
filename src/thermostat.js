@@ -1,6 +1,7 @@
 class Thermostat {
-  constructor(temperature = 20) {
+  constructor(temperature = 20, minTemp = 10) {
     this.temperature = temperature
+    this.minTemp = minTemp
   }
 
   up(temp) {
@@ -8,7 +9,10 @@ class Thermostat {
   }
 
   down(temp) {
-    this.temperature -= temp;
+    if (this.temperature - temp < this.minTemp) {
+      this.temperature = 10;
+    } else {
+      this.temperature -= temp;
+    }
   }
-
 }

@@ -22,4 +22,11 @@ describe('Thermostat', function() {
     thermostat.down(20)
     expect(thermostat.temperature).toEqual(10);
   })
+
+  it('when powersaving mode is on, max temperature can not exceed 25', function() {
+    let thermostat = new Thermostat();
+    powerSavingMode = true;
+    thermostat.up(10)
+    expect(thermostat.temperature).toEqual(25);
+  })
 })
