@@ -59,6 +59,7 @@ describe('Thermostat', function() {
     expect(thermostat.energyUsage).toEqual("low-usage");
     thermostat.up(10);
     expect(thermostat.energyUsage).toEqual("medium-usage");
+    thermostat.powerSavingMode(false);
     thermostat.up(1);
     expect(thermostat.energyUsage).toEqual("high-usage");
   })

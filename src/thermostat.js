@@ -3,6 +3,7 @@ class Thermostat {
     this.temperature = temperature
     this.minTemp = minTemp
     this.powersaver = true
+    this.energyUsage = 'medium-usage'
   }
 
   up(temp) {
@@ -13,6 +14,7 @@ class Thermostat {
     } else {
     this.temperature += temp;
     }
+    this.updateEnergyUsage()
   }
 
   down(temp) {
@@ -21,6 +23,7 @@ class Thermostat {
     } else {
       this.temperature -= temp;
     }
+    this.updateEnergyUsage()
   }
 
   powerSavingMode(status) {
@@ -30,4 +33,15 @@ class Thermostat {
   reset() {
     this.temperature = 20
   }
+
+  updateEnergyUsage() {
+    if (this.temperature > 25) {
+      this.energyUsage = "high-usage"
+    } else if (this.temperature < 18) {
+      this.energyUsage = 'low-usage'
+    } else {
+      this.energyUsage = 'medium-usage'
+    }
+  }
+
 }
